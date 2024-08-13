@@ -1,9 +1,11 @@
-import {Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
+import {Body, Controller, Delete, Get, NotFoundException, Param, Post, UseFilters} from '@nestjs/common';
 import {ProductsService} from "./products.service";
 import {Product} from "./interface/product.interface";
 import {CreateProductDto} from "./dto/create-product.dto";
+import {HttpExceptionFilter} from "../common/filter/http-exception.filter";
 
 @Controller('products')
+@UseFilters(HttpExceptionFilter)
 export class ProductsController {
 
     constructor(private productService: ProductsService) {
@@ -25,8 +27,10 @@ export class ProductsController {
     }
 
     @Delete(':id')
+    // @UseFilters(HttpExceptionFilter)
     async delete(@Param() params): Promise<Product[]>{
         return this.productService.delete(params.id);
+        // throw new NotFoundException();
     }
  
 }

@@ -1,0 +1,16 @@
+POST http://localhost:3000/products
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "123",
+  "name": "Product 123",
+  "price": 1000,
+  "qty": 20
+}
+###
+
+DELETE http://localhost:3000/products/1
+Content-Type: application/json
+Accept: application/json
+###
