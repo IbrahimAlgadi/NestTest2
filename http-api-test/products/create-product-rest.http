@@ -1,0 +1,11 @@
+POST http://localhost:3000/products
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "1",
+  "name": "Product 1",
+  "price": 1000,
+  "qty": 20
+}
+###
