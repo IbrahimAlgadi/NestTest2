@@ -1,10 +1,15 @@
-PATCH http://localhost:3000/products/2
+PATCH http://localhost:3000/products/6
 Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Iphone 7",
+  "name": "Iphone 8",
   "price": 5000,
-  "qty": 5
+  "qty": 12,
+  "partNumber": "AN3423343",
+  "dimension": "5x4",
+  "weight": 77,
+  "manufacturer": "Sudan",
+  "origin": "AU"
 }
 ###

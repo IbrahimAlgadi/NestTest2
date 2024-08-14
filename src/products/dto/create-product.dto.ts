@@ -1,4 +1,4 @@
-import {IsInt, IsNotEmpty, IsNumber, IsString} from "class-validator";
+import {IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Length, Max} from "class-validator";
 
 export class CreateProductDto {
     // @IsNotEmpty()
@@ -16,4 +16,28 @@ export class CreateProductDto {
     @IsNotEmpty()
     @IsNumber()
     price: number;
+
+    @IsNotEmpty()
+    @IsString()
+    // @Max(45 )
+    partNumber: string;
+
+    @IsNotEmpty()
+    @IsString()
+    // @Max(45 )
+    dimension: string;
+
+    @IsNotEmpty()
+    @IsNumber()
+    weight: number;
+
+    @IsNotEmpty()
+    @IsString()
+    // @Max(45 )
+    manufacturer: string;
+
+    @IsNotEmpty()
+    @IsString()
+    // @Max(45 )
+    origin: string;
 }

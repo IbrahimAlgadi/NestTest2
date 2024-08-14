@@ -16,7 +16,8 @@ import {Connection} from "typeorm";
     // password: "",
     database: "nest_test",
     entities: [__dirname + "/**/*.entity{.ts,.js}"],
-    synchronize: true
+    synchronize: false,
+    // synchronize: true,
   }),ProductsModule],
   controllers: [AppController],
   providers: [AppService],

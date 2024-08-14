@@ -1,13 +1,28 @@
+export interface ProductDetails {
+    pertNumber?: string;
+    dimension?: string;
+    weight?: number;
+    manufacturer?: string;
+    origin?: string;
+}
+
 export interface Product {
-    // id: string;
+    id: number;
     name: string;
-    price: number;
     qty: number;
+    price: number;
+    productDetails?: ProductDetails
 }
 
 
 export interface UpdateProduct {
-    name: string;
-    price: number;
-    qty: number;
+    name?: string;
+    qty?: number;
+    price?: number;
+    // Product Details
+    partNumber?: string;
+    dimension?: string;
+    weight?: number;
+    manufacturer?: string;
+    origin?: string;
 }

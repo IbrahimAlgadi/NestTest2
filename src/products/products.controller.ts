@@ -25,6 +25,12 @@ export class ProductsController {
     constructor(private productService: ProductsService) {
     }
 
+    @Post()
+    async create(@Body() product: CreateProductDto): Promise<Product> {
+        console.log(product)
+        return this.productService.create(product)
+    }
+
     @Get()
     findAll(@Param() params): Promise<Product[]> {
         return this.productService.findAll();
@@ -35,21 +41,14 @@ export class ProductsController {
         return this.productService.findOne(id);
     }
 
-    @Post()
-    async create(@Body() product: CreateProductDto): Promise<Product> {
-        return this.productService.create(product)
-    }
-
     @Patch(':id')
     async update(@Param('id') id: number, @Body() product: UpdateProductDto): Promise<Product> {
         return this.productService.update(id, product)
     }
 
     @Delete(':id')
-    // @UseFilters(HttpExceptionFilter)
-    async delete(@Param('id') id: number): Promise<DeleteResult>{
+    async delete(@Param('id') id: number): Promise<any>{
         return this.productService.delete(id);
-        // throw new NotFoundException();
     }
  
 }

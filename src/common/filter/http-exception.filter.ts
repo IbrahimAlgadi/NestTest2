@@ -8,13 +8,16 @@ export class HttpExceptionFilter implements ExceptionFilter {
         const request = ctx.getRequest<Request>();
         const response = ctx.getResponse<Response>();
         const statusCode = exception.getStatus();
-        console.log(request.url)
-        console.log(statusCode)
+        const errorResponse = exception.getResponse();
+        // console.log(exception)
+        // console.log(statusCode)
         // console.log(request.url)
         return response.status(statusCode).json({
-            statusCode: statusCode,
+            errorResponse,
+            // statusCode: statusCode,
             timestamp: new Date().toISOString(),
-            path: request.url
+            path: request.url,
+            // exceptionResponse: exceptionResponse
         })
         // throw new Error("Method not implemented");
     }
