@@ -6,6 +6,8 @@ import {LoggerMiddleware} from "./common/middlewares/logger/logger.middleware";
 import {ProductsService} from "./products/products.service";
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
+import { UsersModule } from './users/users.module';
+import { PhotosModule } from './photos/photos.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -18,7 +20,7 @@ import {Connection} from "typeorm";
     entities: [__dirname + "/**/*.entity{.ts,.js}"],
     synchronize: false,
     // synchronize: true,
-  }),ProductsModule],
+  }),ProductsModule, UsersModule, PhotosModule],
   controllers: [AppController],
   providers: [AppService],
 })
