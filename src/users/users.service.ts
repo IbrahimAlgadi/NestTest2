@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import {InjectRepository} from "@nestjs/typeorm";
 import {UserEntity} from "./entity/users.entity";
-import {Repository} from "typeorm";
+import {DeleteResult, Repository, UpdateResult} from "typeorm";
 import {PhotoEntity} from "../photos/entity/photos.entity";
 import {User} from "./interface/user.interface";
 import {CreateUserDto} from "./dto/create-user.dto";
 import {Photo} from "../photos/interface/photo.interface";
+import {UpdateUserDto} from "./dto/update-user.dto";
 
 @Injectable()
 export class UsersService {
@@ -32,6 +33,22 @@ export class UsersService {
         // await this.usersRepository.save(savedUser)
         //
         // return { ...savedUser, photos: savedPhotos }
+    }
+
+    async findAll(): Promise<User[]> {
+        return this.usersRepository.find({relations: ['photos']})
+    }
+
+    async findOne(id: number): Promise<User> {
+        return this.usersRepository.findOne({where: {id}, relations: ['photos']})
+    }
+
+    async delete(id: number): Promise<DeleteResult> {
+        return this.usersRepository.delete(id)
+    }
+
+    async update(id: number, user: UpdateUserDto): Promise<UpdateResult> {
+        return this.usersRepository.update(id, user)
     }
 
 }

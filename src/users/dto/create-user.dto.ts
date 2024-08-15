@@ -1,5 +1,6 @@
 import {IsArray, IsEmail, IsNotEmpty, IsString, IsStrongPassword} from "class-validator";
 import {PhotoEntity} from "../../photos/entity/photos.entity";
+import {CreatePhotoDto} from "../../photos/dto/create-photo.dto";
 
 export class CreateUserDto {
     @IsNotEmpty()
@@ -12,5 +13,5 @@ export class CreateUserDto {
     password: string;
 
     @IsArray()
-    photos: PhotoEntity[];
+    photos: CreatePhotoDto[];
 }

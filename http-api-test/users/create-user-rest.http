@@ -3,14 +3,14 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "email": "user1@gmail.com",
+  "email": "user2@gmail.com",
   "password": "My@Password123",
   "photos": [
     {
-      "url": "avata/photo1.png"
+      "url": "avata/photo2.png"
     },
     {
-      "url": "avata/photo2.png"
+      "url": "avata/photo3.png"
     }
   ]
 }
