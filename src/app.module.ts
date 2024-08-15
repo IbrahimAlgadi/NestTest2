@@ -8,6 +8,7 @@ import {TypeOrmModule} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
 import { UsersModule } from './users/users.module';
 import { PhotosModule } from './photos/photos.module';
+import {QuizModule} from "./quiz/quiz.module";
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -20,7 +21,7 @@ import { PhotosModule } from './photos/photos.module';
     entities: [__dirname + "/**/*.entity{.ts,.js}"],
     // synchronize: false,
     synchronize: true,
-  }),ProductsModule, UsersModule, PhotosModule],
+  }),ProductsModule, UsersModule, PhotosModule, QuizModule],
   controllers: [AppController],
   providers: [AppService],
 })
